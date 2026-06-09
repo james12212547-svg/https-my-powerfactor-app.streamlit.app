@@ -1,4 +1,3 @@
-Plaintext
 streamlit
 plotly
 pandas
