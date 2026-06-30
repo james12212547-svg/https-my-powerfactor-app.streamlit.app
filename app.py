@@ -680,7 +680,7 @@ if not st.session_state.authenticated:
     with col2:
         pwd = st.text_input("รหัสผ่าน (Password)", type="password")
         if st.button("เข้าสู่ระบบ", use_container_width=True):
-            if pwd == "pfcpro2024":  # You can change the password here
+            if pwd == "jaidum02357":  # You can change the password here
                 st.session_state.authenticated = True
                 st.rerun()
             else:
