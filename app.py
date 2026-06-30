@@ -663,6 +663,33 @@ def generate_boq(
 # ---------------------------------------------------------
 st.set_page_config(page_title="PFC Pro Analyzer | ระบบวิเคราะห์ Power Factor", layout="wide", page_icon="⚡")
 
+
+# ---------------------------------------------------------
+# Simple Authentication
+# ---------------------------------------------------------
+import streamlit as st
+
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+if not st.session_state.authenticated:
+    st.markdown("<h1 style='text-align: center; color: #00c8ff;'>🔐 PFC Pro Analyzer</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>กรุณาใส่รหัสผ่านเพื่อเข้าใช้งานระบบ</p>", unsafe_allow_html=True)
+    
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        pwd = st.text_input("รหัสผ่าน (Password)", type="password")
+        if st.button("เข้าสู่ระบบ", use_container_width=True):
+            if pwd == "pfcpro2024":  # You can change the password here
+                st.session_state.authenticated = True
+                st.rerun()
+            else:
+                st.error("รหัสผ่านไม่ถูกต้อง!")
+    
+    # Stop the rest of the app from running until authenticated
+    st.stop()
+
+
 # Google Fonts — ต้องแยกออกจาก <style> block เพื่อให้ Streamlit render ถูกต้อง
 st.markdown(
     '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">',
