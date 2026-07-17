@@ -172,3 +172,11 @@ input:focus, select:focus {
   border-bottom-color: #ef4444;
 }
 
+/* Hide Scrollbar */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

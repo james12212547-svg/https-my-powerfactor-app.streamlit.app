@@ -199,15 +199,14 @@ export default function Home() {
           }}
         >
           {/* Inner Content (Fixed width so it doesn't wrap during animation) */}
-          <div style={{ 
+          <div className="hide-scrollbar" style={{ 
             width: '340px', 
             height: '100%', 
             overflowY: 'auto', 
             padding: '1.5rem',
             opacity: isSidebarOpen ? 1 : 0,
             transition: 'opacity 0.2s ease',
-            visibility: isSidebarOpen ? 'visible' : 'hidden',
-            scrollbarWidth: 'thin'
+            visibility: isSidebarOpen ? 'visible' : 'hidden'
           }}>
             
             <h2 style={{ color: 'var(--primary)', marginBottom: '2rem', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
